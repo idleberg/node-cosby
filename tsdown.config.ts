@@ -7,8 +7,9 @@ export default defineConfig((options) => {
 		target: 'node20',
 		clean: isProduction,
 		dts: isProduction,
-		entry: 'src/index.ts',
-		format: 'esm',
+		entry: ['src/index.ts', 'src/cli.ts'],
+		format: ['esm', 'cjs'],
 		minify: isProduction,
+		outDir: 'lib',
 	};
 });

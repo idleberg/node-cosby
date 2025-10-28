@@ -1,18 +1,17 @@
 node_modules/
+
+# development
+esbuild.config.*
+
+# build output
 bin/
 dist/
 lib/
-.eslintcache
-
-# Development
-.esbuildrc
-.esbuildrc.*
-esbuild.config.*
 
 # Test
 coverage/
 test-results/
 
-# Project specific
+# project specific
 app.js
-test.ts
+app.ts
