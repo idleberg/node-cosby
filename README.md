@@ -2,9 +2,9 @@
 
 > Delightful esbuild configurations.
 
-[![License](https://img.shields.io/github/license/idleberg/cosby?color=blue&style=for-the-badge)](https://github.com/idleberg/cosby/blob/main/LICENSE)
+[![License](https://img.shields.io/github/license/idleberg/node-cosby?color=blue&style=for-the-badge)](https://github.com/idleberg/node-cosby/blob/main/LICENSE)
 [![Version: npm](https://img.shields.io/npm/v/@idleberg/cosby?style=for-the-badge)](https://www.npmjs.org/package/@idleberg/cosby)
-![GitHub branch check runs](https://img.shields.io/github/check-runs/idleberg/cosby/main?style=for-the-badge)
+![GitHub branch check runs](https://img.shields.io/github/check-runs/idleberg/node-cosby/main?style=for-the-badge)
 
 Cosby allows bundling with `esbuild` while using familiar configuration files, such as `esbuild.config.json` or `esbuild.config.ts`.
 
