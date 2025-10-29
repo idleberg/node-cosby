@@ -14,7 +14,6 @@ Cosby allows bundling with `esbuild` while using familiar configuration files, s
 **Features**
 
 - supports [multiple file formats](#configuration)
-- watches for changes
 - [extends](#extending-configuration) from multiple local or git sources
 - evaluates [Dotenv](https://github.com/idleberg/node-cosby#dotenv) files
 - cleans up before build
