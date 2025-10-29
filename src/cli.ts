@@ -5,6 +5,7 @@ import { program } from 'commander';
 import type { BuildOptions } from 'esbuild';
 import { loadEsbuildConfig } from './config.ts';
 import { buildWithOptions, watchWithOptions } from './esbuild.ts';
+import type { CosbyOptions } from './index.ts';
 import consola from './logger.ts';
 
 const { version } = JSON.parse(fs.readFileSync(new URL('../package.json', import.meta.url), 'utf8'));
@@ -17,14 +18,12 @@ export function handleCli() {
 			writeOut: (message: string) => consola.log(message),
 		})
 		.option('-w, --watch', 'run in watch mode', false)
-		.option('--clean', 'clean outdir before build', false)
-		.option('--debug', 'print additional debug info', false)
+		.option('-C, --clean', 'clean outdir before build', false)
+		.option('-d, --debug', 'print additional debug info', false)
 		.optionsGroup('Config Loader:')
 		.option('-c, --cwd <path>', 'set current working directoy', process.cwd())
-		.option('-d, --dotenv <.env file>', 'load .env file')
-		.option('-g, --globalrc', "load RC config from the workspace directory and the user's home directory", false)
-		.option('-p, --package-json', 'loads config from nearest package.json file', false)
-		.option('-r, --rcfile', 'enable loading RC config', false);
+		.option('-e, --dotenv <.env file>', 'load .env file')
+		.option('-p, --package-json', 'loads config from nearest package.json file', false);
 
 	program.parse();
 
@@ -38,7 +37,8 @@ export async function main() {
 		consola.debug('CLI Options\n', JSON.stringify(options, null, 2));
 	}
 
-	const esbuildOptions = (await loadEsbuildConfig(options)) as BuildOptions;
+	const cosbyOptions = (await loadEsbuildConfig(options)) as CosbyOptions;
+	const { extends: _baseConfig, ...esbuildOptions } = cosbyOptions;
 
 	if (options.debug) {
 		consola.debug('Esbuild Config\n', JSON.stringify(esbuildOptions, null, 2));

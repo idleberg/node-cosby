@@ -1,5 +1,9 @@
 import type { BuildOptions } from 'esbuild';
 
-export function defineConfig(config: BuildOptions): BuildOptions {
+export interface CosbyOptions extends BuildOptions {
+	extends?: string;
+}
+
+export function defineConfig(config: CosbyOptions): CosbyOptions {
 	return config;
 }

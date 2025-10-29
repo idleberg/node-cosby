@@ -4,20 +4,19 @@ import consola from 'consola';
 
 export async function loadEsbuildConfig(options: OptionValues) {
 	try {
-		const { config } = await loadConfig({
+		const result = await loadConfig({
 			// Map arguments to Esbuild
 			cwd: options.cwd,
 			dotenv: options.dotenv,
-			globalRc: options.globalrc,
 			packageJson: options.packageJson,
-			rcFile: options.rcfile,
 
 			// Cosby Defaults
 			name: 'esbuild',
-			configFileRequired: true,
 		});
 
-		return config;
+		console.log(result);
+
+		return result.config;
 	} catch {
 		consola.error('Required configuration cannot be resolved.');
 		process.exit(1);
