@@ -9,7 +9,7 @@
 Cosby allows bundling with `esbuild` while using familiar configuration files, such as `esbuild.config.json` or `esbuild.config.ts`.
 
 > [!NOTE]
-> Sounds familiar? This projects has its roots in a similar project called `cosmic-esbuild`. However, its main goal was a simplified API while providing more powerful features. But read on!
+> Sounds familiar? This projects has its roots in a similar project called `cosmic-esbuild`. With `cosby`, the main goal was a simplified API while providing more powerful features. But let's read on!
 
 **Features**
 
