@@ -2,7 +2,6 @@
 
 import fs from 'node:fs';
 import { program } from 'commander';
-import type { BuildOptions } from 'esbuild';
 import { loadEsbuildConfig } from './config.ts';
 import { buildWithOptions, watchWithOptions } from './esbuild.ts';
 import type { CosbyOptions } from './index.ts';
