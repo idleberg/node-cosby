@@ -1,3 +1,6 @@
+/**
+ * Oh, the irony!
+ */
 import { defineConfig } from 'tsdown';
 
 export default defineConfig((options) => {
