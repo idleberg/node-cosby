@@ -46,20 +46,7 @@ npm install @idleberg/cosby
 
 </details>
 
-Example of a purely declarative configuration.
-
-**JSON**
-
-```json
-{
-	"bundle": true,
-	"entryPoints": ["app.js"],
-	"outdir": "dist",
-	"sourcemap": "external",
-}
-```
-
-Example of a fully typed configuration.
+Example of a fully typed configuration:
 
 **TypeScript**
 
@@ -72,6 +59,19 @@ export default defineConfig({
 	outdir: 'dist',
 	sourcemap: 'external',
 });
+```
+
+Example of a purely declarative configuration:
+
+**JSON**
+
+```json
+{
+	"bundle": true,
+	"entryPoints": ["app.js"],
+	"outdir": "dist",
+	"sourcemap": "external",
+}
 ```
 
 ### CLI
