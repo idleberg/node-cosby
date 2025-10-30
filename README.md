@@ -92,9 +92,7 @@ See `npx cosby --help` for available options.
 
 #### Extending Configuration
 
-In a monorepo, you often want to extend from a base configuration.
-
-**Example**
+In a monorepo, you often want to extend from a base configuration:
 
 ```typescript
 export default defineConfig({
@@ -102,9 +100,7 @@ export default defineConfig({
 });
 ```
 
-Extend from a remote git source.
-
-**Example**
+Extend from a remote git source:
 
 ```typescript
 export default defineConfig({
@@ -114,9 +110,7 @@ export default defineConfig({
 
 #### Dotenv
 
-Run `npx cosby --dotenv .env` to load environment variables from a file.
-
-**Example**
+Run `npx cosby --dotenv .env` to load environment variables from a file:
 
 ```typescript
 export default defineConfig({
@@ -133,7 +127,7 @@ You can define environment-specific configuration using these config keys:
 - `$production: {...}`
 - `$env: { [env]: {...} }`
 
-**Example**
+Run `npx cosby --env-name production` to apply the overrides for production:
 
 ```typescript
 export default defineConfig({
