@@ -9,6 +9,7 @@ export async function loadEsbuildConfig(options: OptionValues) {
 			cwd: options.cwd,
 			dotenv: options.dotenv,
 			packageJson: options.packageJson,
+			envName: options.envName,
 
 			// Cosby Defaults
 			name: 'esbuild',

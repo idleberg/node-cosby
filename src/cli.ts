@@ -18,10 +18,11 @@ export function handleCli() {
 		})
 		.option('-w, --watch', 'run in watch mode', false)
 		.option('-C, --clean', 'clean outdir before build', false)
-		.option('-d, --debug', 'print additional debug info', false)
+		.option('-D, --debug', 'print additional debug info', false)
 		.optionsGroup('Config Loader:')
 		.option('-c, --cwd <path>', 'set current working directoy', process.cwd())
-		.option('-e, --dotenv <.env file>', 'load .env file')
+		.option('-e, --env-name <environment>', 'define environment-specific configuration')
+		.option('-d, --dotenv <.env file>', 'load .env file')
 		.option('-p, --package-json', 'loads config from nearest package.json file', false);
 
 	program.parse();
@@ -37,7 +38,17 @@ export async function main() {
 	}
 
 	const cosbyOptions = (await loadEsbuildConfig(options)) as CosbyOptions;
-	const { extends: _baseConfig, ...esbuildOptions } = cosbyOptions;
+	const {
+		// ignore these
+		$test: _testEnv,
+		$development: _developmentEnv,
+		$production: _productionEnv,
+		$env: _env,
+		extends: _baseConfig,
+
+		// this is what we're after
+		...esbuildOptions
+	} = cosbyOptions;
 
 	if (options.debug) {
 		consola.debug('Esbuild Config\n', JSON.stringify(esbuildOptions, null, 2));
