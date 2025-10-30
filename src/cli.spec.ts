@@ -60,13 +60,17 @@ describe('cli', () => {
 			expect(mockProgram.configureOutput).toHaveBeenCalled();
 			expect(mockProgram.option).toHaveBeenCalledWith('-C, --clean', 'clean outdir before build', false);
 			expect(mockProgram.option).toHaveBeenCalledWith('-w, --watch', 'run in watch mode', false);
-			expect(mockProgram.option).toHaveBeenCalledWith('-d, --debug', 'print additional debug info', false);
+			expect(mockProgram.option).toHaveBeenCalledWith('-D, --debug', 'print additional debug info', false);
 			expect(mockProgram.option).toHaveBeenCalledWith(
 				'-c, --cwd <path>',
 				'set current working directoy',
 				process.cwd(),
 			);
-			expect(mockProgram.option).toHaveBeenCalledWith('-e, --dotenv <.env file>', 'load .env file');
+			expect(mockProgram.option).toHaveBeenCalledWith(
+				'-e, --env-name <environment>',
+				'define environment-specific configuration',
+			);
+			expect(mockProgram.option).toHaveBeenCalledWith('-d, --dotenv <.env file>', 'load .env file');
 			expect(mockProgram.option).toHaveBeenCalledWith(
 				'-p, --package-json',
 				'loads config from nearest package.json file',
@@ -171,6 +175,26 @@ describe('cli', () => {
 				cwd: '/custom/path',
 				dotenv: '.env.test',
 				packageJson: true,
+			};
+
+			const mockEsbuildOptions = { entryPoints: ['src/index.ts'] };
+
+			mockProgram.opts.mockReturnValue(mockOptions);
+			mockLoadEsbuildConfig.mockResolvedValue(mockEsbuildOptions);
+
+			await main();
+
+			expect(mockLoadEsbuildConfig).toHaveBeenCalledWith(mockOptions);
+		});
+
+		it('passes envName option to loadEsbuildConfig', async () => {
+			const { main } = await import('./cli.ts');
+			const mockOptions = {
+				clean: false,
+				watch: false,
+				debug: false,
+				cwd: '/custom/path',
+				envName: 'staging',
 			};
 
 			const mockEsbuildOptions = { entryPoints: ['src/index.ts'] };

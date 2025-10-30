@@ -69,6 +69,33 @@ describe('loadEsbuildConfig', () => {
 		});
 	});
 
+	it('loads config with envName option', async () => {
+		const { loadConfig } = await import('c12');
+		const mockConfig = { entryPoints: ['src/app.ts'] };
+
+		vi.mocked(loadConfig).mockResolvedValue({
+			config: mockConfig,
+			configFile: undefined,
+			layers: [],
+		});
+
+		const options = {
+			cwd: '/custom/path',
+			envName: 'staging',
+		};
+
+		const result = await loadEsbuildConfig(options);
+
+		expect(result).toEqual(mockConfig);
+		expect(loadConfig).toHaveBeenCalledWith({
+			cwd: '/custom/path',
+			dotenv: undefined,
+			packageJson: undefined,
+			name: 'esbuild',
+			envName: 'staging',
+		});
+	});
+
 	it('exits process when config loading fails', async () => {
 		const { loadConfig } = await import('c12');
 		const consola = (await import('consola')).default;
