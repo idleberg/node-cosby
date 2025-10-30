@@ -15,8 +15,6 @@ export async function loadEsbuildConfig(options: OptionValues) {
 			name: 'esbuild',
 		});
 
-		console.log(result);
-
 		return result.config;
 	} catch {
 		consola.error('Required configuration cannot be resolved.');
