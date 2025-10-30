@@ -8,7 +8,11 @@
 		"type": "git",
 		"url": "git+https://github.com/idleberg/node-cosby.git"
 	},
-	"keywords": [],
+	"keywords": [
+		"esbuild",
+		"esbuild config",
+		"configuration"
+	],
 	"type": "module",
 	"bin": {
 		"cosby": "./lib/cli.js"
