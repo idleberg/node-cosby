@@ -94,6 +94,8 @@ See `npx cosby --help` for available options.
 
 In a monorepo, you often want to extend from a base configuration.
 
+**Example**
+
 ```typescript
 export default defineConfig({
 	"extends": "../base",
@@ -101,6 +103,8 @@ export default defineConfig({
 ```
 
 Extend from a remote git source.
+
+**Example**
 
 ```typescript
 export default defineConfig({
@@ -112,9 +116,38 @@ export default defineConfig({
 
 Run `npx cosby --dotenv .env` to load environment variables from a file.
 
+**Example**
+
 ```typescript
 export default defineConfig({
 	minify: process.env.NODE_ENV !== 'development'
+})
+```
+
+#### Environment-specific configuration
+
+You can define environment-specific configuration using these config keys:
+
+- `$test: {...}`
+- `$development: {...}`
+- `$production: {...}`
+- `$env: { [env]: {...} }`
+
+**Example**
+
+```typescript
+export default defineConfig({
+	minify: false,
+	sourcemap: 'external'.
+
+	$test: {
+		minify: true,
+	},
+	
+	$production: {
+		minify: true,
+		sourcemap: false
+	}
 })
 ```
 
