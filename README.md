@@ -115,7 +115,7 @@ Run `npx cosby --dotenv .env` to load environment variables from a file:
 
 ```typescript
 export default defineConfig({
-	minify: process.env.NODE_ENV !== 'development'
+	minify: process.env.NODE_ENV !== 'development',
 })
 ```
 
@@ -133,7 +133,7 @@ Run `npx cosby --env-name production` to apply the overrides for production:
 ```typescript
 export default defineConfig({
 	minify: false,
-	sourcemap: 'external'.
+	sourcemap: 'external',
 
 	$test: {
 		minify: true,
@@ -141,8 +141,8 @@ export default defineConfig({
 	
 	$production: {
 		minify: true,
-		sourcemap: false
-	}
+		sourcemap: false,
+	},
 })
 ```
 
