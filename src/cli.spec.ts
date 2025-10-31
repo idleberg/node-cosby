@@ -70,7 +70,7 @@ describe('cli', () => {
 				'-e, --env-name <environment>',
 				'define environment-specific configuration',
 			);
-			expect(mockProgram.option).toHaveBeenCalledWith('-d, --dotenv <.env file>', 'load .env file');
+			expect(mockProgram.option).toHaveBeenCalledWith('-d, --dotenv <env file>', 'load .env file');
 			expect(mockProgram.option).toHaveBeenCalledWith(
 				'-p, --package-json',
 				'loads config from nearest package.json file',

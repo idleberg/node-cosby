@@ -22,7 +22,7 @@ export function handleCli() {
 		.optionsGroup('Config Loader:')
 		.option('-c, --cwd <path>', 'set current working directoy', process.cwd())
 		.option('-e, --env-name <environment>', 'define environment-specific configuration')
-		.option('-d, --dotenv <.env file>', 'load .env file')
+		.option('-d, --dotenv <env file>', 'load .env file')
 		.option('-p, --package-json', 'loads config from nearest package.json file', false);
 
 	program.parse();
