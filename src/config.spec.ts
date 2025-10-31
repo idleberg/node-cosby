@@ -23,7 +23,7 @@ describe('loadEsbuildConfig', () => {
 
 		vi.mocked(loadConfig).mockResolvedValue({
 			config: mockConfig,
-			configFile: undefined,
+			_configFile: '/test/path/esbuild.config.js',
 			layers: [],
 		});
 
@@ -48,7 +48,7 @@ describe('loadEsbuildConfig', () => {
 
 		vi.mocked(loadConfig).mockResolvedValue({
 			config: mockConfig,
-			configFile: undefined,
+			_configFile: '/custom/path/esbuild.config.js',
 			layers: [],
 		});
 
@@ -75,7 +75,7 @@ describe('loadEsbuildConfig', () => {
 
 		vi.mocked(loadConfig).mockResolvedValue({
 			config: mockConfig,
-			configFile: undefined,
+			_configFile: '/custom/path/esbuild.config.js',
 			layers: [],
 		});
 
@@ -96,20 +96,17 @@ describe('loadEsbuildConfig', () => {
 		});
 	});
 
-	it('exits process when config loading fails', async () => {
+	it('throws error when config file is not found', async () => {
 		const { loadConfig } = await import('c12');
-		const consola = (await import('consola')).default;
-		const mockExit = vi.spyOn(process, 'exit').mockImplementation(() => undefined as never);
 
-		vi.mocked(loadConfig).mockRejectedValue(new Error('Config not found'));
+		vi.mocked(loadConfig).mockResolvedValue({
+			config: {},
+			_configFile: undefined,
+			layers: [],
+		});
 
 		const options = { cwd: '/test/path' };
 
-		await loadEsbuildConfig(options);
-
-		expect(consola.error).toHaveBeenCalledWith('Required configuration cannot be resolved.');
-		expect(mockExit).toHaveBeenCalledWith(1);
-
-		mockExit.mockRestore();
+		await expect(loadEsbuildConfig(options)).rejects.toThrow('No configuration file found.');
 	});
 });
