@@ -73,7 +73,7 @@ Example of a purely declarative configuration:
 	"bundle": true,
 	"entryPoints": ["app.js"],
 	"outdir": "dist",
-	"sourcemap": "external",
+	"sourcemap": "external"
 }
 ```
 
