@@ -9,6 +9,7 @@ vi.mock('c12', () => ({
 vi.mock('consola', () => ({
 	default: {
 		error: vi.fn(),
+		info: vi.fn(),
 	},
 }));
 
