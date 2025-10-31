@@ -45,6 +45,8 @@ npm install @idleberg/cosby
 - `esbuild.config.yml`
 - `esbuild.config.toml`
 
+Using the `--package-json` flag, you can load the configuration form the package manifests' `esbuild` field.
+
 </details>
 
 Example of a fully typed configuration:
