@@ -50,6 +50,10 @@ export async function main() {
 		...esbuildOptions
 	} = cosbyOptions;
 
+	if (!esbuildOptions?.entryPoints) {
+		throw new Error('No entrypoints have been defined.');
+	}
+
 	if (options.debug) {
 		consola.debug('Esbuild Config\n', JSON.stringify(esbuildOptions, null, 2));
 	}
@@ -63,5 +67,5 @@ export async function main() {
 
 // [tsdown] Top-level await is currently not supported with the 'cjs' output format.
 if (import.meta.url === `file://${process.argv[1]}`) {
-	main();
+	main().catch((error) => consola.error(error.message));
 }
