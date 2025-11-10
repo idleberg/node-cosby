@@ -1,10 +1,10 @@
-import type { BuildOptions } from 'esbuild';
+import type { BuildOptions as EsbuildOptions } from 'esbuild';
 
-export interface ExtendableBuildOptions extends BuildOptions {
+interface ExtendableBuildOptions extends EsbuildOptions {
 	extends?: string;
 }
 
-export interface CosbyOptions extends ExtendableBuildOptions {
+export interface BuildOptions extends ExtendableBuildOptions {
 	$development?: ExtendableBuildOptions;
 	$test?: ExtendableBuildOptions;
 	$production?: ExtendableBuildOptions;
@@ -13,6 +13,6 @@ export interface CosbyOptions extends ExtendableBuildOptions {
 	};
 }
 
-export function defineConfig(config: CosbyOptions): CosbyOptions {
+export function defineConfig(config: BuildOptions): BuildOptions {
 	return config;
 }
