@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import { program } from 'commander';
 import { loadEsbuildConfig } from './config.ts';
 import { buildWithOptions, watchWithOptions } from './esbuild.ts';
-import type { CosbyOptions } from './index.ts';
+import type { BuildOptions } from './index.ts';
 import consola from './logger.ts';
 
 const { version } = JSON.parse(fs.readFileSync(new URL('../package.json', import.meta.url), 'utf8'));
@@ -37,7 +37,7 @@ export async function main() {
 		consola.debug('CLI Options\n', JSON.stringify(options, null, 2));
 	}
 
-	const cosbyOptions = (await loadEsbuildConfig(options)) as CosbyOptions;
+	const cosbyOptions = (await loadEsbuildConfig(options)) as BuildOptions;
 	const {
 		// ignore these
 		$test: _testEnv,
