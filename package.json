@@ -15,7 +15,7 @@
 	],
 	"type": "module",
 	"bin": {
-		"cosby": "./lib/cli.js"
+		"cosby": "./lib/cli.mjs"
 	},
 	"exports": {
 		".": {
