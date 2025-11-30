@@ -48,7 +48,7 @@
 		"test": "vitest run"
 	},
 	"dependencies": {
-		"c12": "^3.3.1",
+		"c12": "^3.3.2",
 		"commander": "^14.0.2",
 		"consola": "^3.4.2"
 	},
@@ -57,13 +57,13 @@
 		"@commitlint/config-conventional": "^20.0.0",
 		"@e18e/cli": "^0.3.1",
 		"@idleberg/configs": "^0.3.3",
-		"@types/node": "^24.10.0",
-		"@vitest/coverage-v8": "^4.0.8",
+		"@types/node": "^24.10.1",
+		"@vitest/coverage-v8": "^4.0.14",
 		"concurrently": "^9.2.1",
 		"np": "^10.2.0",
 		"tsdown": "^0.16.1",
 		"typescript": "^5.9.3",
-		"vitest": "^4.0.8"
+		"vitest": "^4.0.14"
 	},
 	"peerDependencies": {
 		"esbuild": "^0.25.11"
