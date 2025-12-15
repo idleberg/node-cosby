@@ -69,6 +69,7 @@ describe('cli', () => {
 			expect(mockProgram.option).toHaveBeenCalledWith(
 				'-e, --env-name <environment>',
 				'define environment-specific configuration',
+				process.env.NODE_ENV,
 			);
 			expect(mockProgram.option).toHaveBeenCalledWith('-d, --dotenv <env file>', 'load .env file');
 			expect(mockProgram.option).toHaveBeenCalledWith(
