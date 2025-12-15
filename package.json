@@ -1,7 +1,7 @@
 {
 	"name": "@idleberg/cosby",
 	"description": "Delightful esbuild configurations",
-	"version": "0.2.4",
+	"version": "0.2.5",
 	"license": "MIT",
 	"author": "Jan T. Sott",
 	"repository": {
