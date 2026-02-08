@@ -49,20 +49,20 @@
 	},
 	"dependencies": {
 		"c12": "^3.3.2",
-		"commander": "^14.0.2",
+		"commander": "^14.0.3",
 		"consola": "^3.4.2"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^20.2.0",
-		"@commitlint/config-conventional": "^20.2.0",
-		"@idleberg/configs": "^0.4.1",
+		"@commitlint/cli": "^20.4.1",
+		"@commitlint/config-conventional": "^20.4.1",
+		"@idleberg/configs": "^0.4.2",
 		"@types/node": "^24.10.1",
-		"@vitest/coverage-v8": "^4.0.15",
+		"@vitest/coverage-v8": "^4.0.18",
 		"concurrently": "^9.2.1",
-		"np": "^10.2.0",
-		"tsdown": "^0.18.0",
+		"np": "^11.0.2",
+		"tsdown": "^0.20.3",
 		"typescript": "^5.9.3",
-		"vitest": "^4.0.15"
+		"vitest": "^4.0.18"
 	},
 	"peerDependencies": {
 		"esbuild": "^0.25.11"
