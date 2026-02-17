@@ -42,13 +42,12 @@
 		"lint:biome": "biome check",
 		"lint:e18e": "e18e-cli analyze",
 		"prepack": "npm run build",
-		"prepare": "lefthook install",
 		"publish:jsr": "deno publish",
 		"publish:npm": "np",
 		"test": "vitest run"
 	},
 	"dependencies": {
-		"c12": "^3.3.2",
+		"c12": "4.0.0-beta.2",
 		"commander": "^14.0.3",
 		"consola": "^3.4.2"
 	},
@@ -66,6 +65,11 @@
 	},
 	"peerDependencies": {
 		"esbuild": "^0.25.11"
+	},
+	"pnpm": {
+		"onlyBuiltDependencies": [
+			"lefthook"
+		]
 	},
 	"packageManager": "pnpm@10.20.0+sha512.cf9998222162dd85864d0a8102e7892e7ba4ceadebbf5a31f9c2fce48dfce317a9c53b9f6464d1ef9042cba2e02ae02a9f7c143a2b438cd93c91840f0192b9dd"
 }
