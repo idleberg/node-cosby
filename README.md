@@ -155,6 +155,6 @@ If this project is not for you, maybe these alternatives suit you better:
 - [tsup](https://www.npmjs.com/package/tsup)
 - [cosmic-esbuild](https://www.npmjs.com/package/cosmic-esbuild)
 
-## License©️
+## License ©️
 
 This work is licensed under [The MIT License](LICENSE).
